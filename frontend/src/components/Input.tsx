@@ -1,14 +1,11 @@
 import type { InputTypes } from "../types/InputTypes"
 
-const variantStyle = {
-    "primary": "w-full h-10 rounded-md border border-gray-300 px-3 py-2",
-    "secondary": "w-full h-12 rounded-md border border-gray-300 px-3 py-2",
-    "tertiary": "w-full h-14 rounded-md border border-gray-300 px-3 py-2"
-}
 
-export const Input = (props:InputTypes) =>{
+
+export const Input = ({onChange, placeholder}:InputTypes) =>{
     return(
-        <div className={variantStyle[props.size]}>
+        <div className="w-full h-10 rounded-md border border-gray-300 px-3 py-2">
+            <input type="text" placeholder={placeholder} onChange={onChange} className="w-full h-full outline-none" />
         </div>
     )
 }
