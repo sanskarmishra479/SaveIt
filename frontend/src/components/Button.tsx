@@ -5,10 +5,15 @@ const variantStyle = {
     "primary": "bg-black text-gray-200 rounded-full p-2 shadow-md cursor-pointer hover:bg-gray-800 ",
     "secondary":"bg-gray-200 text-black rounded-full p-2 shadow-md cursor-pointer hover:bg-gray-300 inset-shadow-sm inset-shadow"
 }
+const sizeStyle = {
+    "sm":"text-xl font-semibold",
+    "md":"h-20 w-full text-2xl font-semibold",
+    "lg":"h-30 w-full text-3xl font-semibold"
+}
 
 function Button(props:ButtonTypes){
     return(
-        <button className={variantStyle[props.variant]} onClick={props.onclick}>
+        <button className={`${variantStyle[props.variant]}  ${sizeStyle[props.size]}`} onClick={props.onclick}>
             {props.startIcon}
             {props.text}
         </button>

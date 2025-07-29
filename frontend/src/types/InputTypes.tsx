@@ -1,4 +1,5 @@
 export interface InputTypes{
-    placeholder?: string;
+    placeholder: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    inputType: string;
 }
