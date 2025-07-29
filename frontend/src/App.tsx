@@ -9,7 +9,7 @@ interface ButtonContextType {
 export const ButtonContext = createContext<ButtonContextType>({ setModalOpen: () => {} });
 
 function App() {
-  const [modalOpen, setModalOpen]= useState(true)
+  const [modalOpen, setModalOpen]= useState(false)
 
   return (
     <div className="flex justify-center">
