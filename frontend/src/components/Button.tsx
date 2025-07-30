@@ -7,8 +7,8 @@ const variantStyle = {
 }
 const sizeStyle = {
     "sm":"text-xl font-semibold",
-    "md":"h-20 w-full text-2xl font-semibold",
-    "lg":"h-30 w-full text-3xl font-semibold"
+    "md":"w-full text-xl font-semibold",
+    "lg":"w-full text-3xl font-semibold"
 }
 
 function Button(props:ButtonTypes){

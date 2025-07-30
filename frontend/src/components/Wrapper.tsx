@@ -1,17 +1,24 @@
+import { useState } from "react"
 import { Addsearch } from "./Addsearch"
 import { Cards } from "./Cards"
+import { ButtonContext } from "./context/ButtonContext"
 import { Greeting } from "./Greeting"
-// import { Loding } from "./Loding"
+import { CreateContent } from "./modal/CreateContent"
 import { Navbar } from "./Navbar"
 
 export const Wrapper = () =>{
+    const [modalOpen, setModalOpen]= useState(false)
     return(
-        <>
+        <div className="w-screen h-screen flex items-center justify-center">
               <div className="h-full w-270 flex-col justify-center">
                 <Navbar />
                 <Greeting />
-                <Addsearch />
-                {/* <Loding counts={10} /> */}
+                <ButtonContext.Provider value={{ setModalOpen}}>
+                  <Addsearch />
+                </ButtonContext.Provider>
+                <CreateContent open={modalOpen} onClose={() => {
+                      setModalOpen(false)
+                    }} />
                 <div className="p-2 mt-20 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                   <Cards type="youtube" url="https://www.youtube.com/watch?v=Vw74YgG4jP0" title="India VS England 2025" />
                   <Cards type="twitter" url="https://x.com/sanskarXdev/status/1948672877819297949" title="Hostel Life" />
@@ -22,6 +29,6 @@ export const Wrapper = () =>{
                   <Cards type="other" url="https://gemini.google.com/app?hl=en-IN" title="Google" />
                 </div>
               </div>
-        </>
+        </div>
     )
 }

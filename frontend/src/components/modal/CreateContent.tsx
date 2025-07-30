@@ -1,9 +1,25 @@
+import { useRef } from "react";
 import { Cross } from "../../icons/Cross"
 import Button from "../Button"
 import { Input } from "../Input"
+import axios from "axios";
+import { Backend_URL } from "../../config";
 
 //controlled component
 export const CreateContent = ({open, onClose}:{open:boolean, onClose:() => void}) =>{
+    const titleRef = useRef<HTMLInputElement>(null);
+    const linkRef = useRef<HTMLInputElement>(null);
+
+    async function handleSubmit(){
+        const title = titleRef.current?.value;
+        const link = linkRef.current?.value;
+        await axios.post(`${Backend_URL}/api/v1/content`, {
+            title,
+            link,
+            
+        })
+    }
+    
     return(
         <>
         {open && 
@@ -13,9 +29,9 @@ export const CreateContent = ({open, onClose}:{open:boolean, onClose:() => void}
                     <div>
                         <div className="flex items-center justify-center mt-5"><h1 className="text-2xl font-bold">Add Content</h1></div>
                         <div className="flex flex-col gap-2 mt-5">
-                            <Input placeholder="Title" onChange={() => {}} />
-                            <Input placeholder="Link" onChange={() => {}} />
-                            <Button text="Add" variant="primary" />
+                            <Input placeholder="Title" inputType="text"/>
+                            <Input placeholder="Link" inputType="text"/>
+                            <Button text="Add" variant="primary" size="sm" />
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,7 @@
+import type { Ref } from "react";
+
 export interface InputTypes{
     placeholder: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     inputType: string;
+    inputReferance?: Ref<HTMLInputElement>;
 }

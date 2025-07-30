@@ -7,9 +7,11 @@ import jwt from "jsonwebtoken"
 import { JWT_SECRETE, MONGO_DB_URL } from "./config";
 import { authMiddleware } from "./middleware";
 import { hash } from "./utils";
+import cors from "cors";
 
 const app = express();
-app.use(express.json());
+app.use(express.json())
+app.use(cors());
 
 //routes
 //signup
