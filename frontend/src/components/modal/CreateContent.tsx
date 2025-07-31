@@ -16,8 +16,14 @@ export const CreateContent = ({open, onClose}:{open:boolean, onClose:() => void}
         await axios.post(`${Backend_URL}/api/v1/content`, {
             title,
             link,
-            
-        })
+            type:"youtube"
+        },{
+            headers: {
+                "authorization": localStorage.getItem("authorization")
+            }
+        }
+        )
+        onClose()
     }
     
     return(
@@ -29,9 +35,9 @@ export const CreateContent = ({open, onClose}:{open:boolean, onClose:() => void}
                     <div>
                         <div className="flex items-center justify-center mt-5"><h1 className="text-2xl font-bold">Add Content</h1></div>
                         <div className="flex flex-col gap-2 mt-5">
-                            <Input placeholder="Title" inputType="text"/>
-                            <Input placeholder="Link" inputType="text"/>
-                            <Button text="Add" variant="primary" size="sm" />
+                            <Input placeholder="Title" inputType="text" inputReferance={titleRef} />
+                            <Input placeholder="Link" inputType="text" inputReferance={linkRef}/>
+                            <Button text="Add" variant="primary" size="sm" onclick={handleSubmit} />
                         </div>
                     </div>
                 </div>

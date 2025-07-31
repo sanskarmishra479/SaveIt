@@ -1,4 +1,4 @@
-import mongoose,{model, Schema} from "mongoose";
+import {model, Schema} from "mongoose";
 const ObjectId = Schema.Types.ObjectId;
 
 const Users = new Schema({
@@ -11,12 +11,11 @@ const Tags = new Schema({
     title: { type: String, required: true, unique: true }
 });
 
-const contentTypes = ['image', 'video', 'audio', 'article'];
 
 const Contents = new Schema({
     link: { type: String, required: true },
     title: { type: String, required: true },
-    type: { type: String, enum: contentTypes, required: true },
+    type: { type: String,  required: true },
     tags: [{ type: ObjectId, ref: 'Tags', required: true }],
     userId: { type: ObjectId, ref: 'Users', required: true }
 });

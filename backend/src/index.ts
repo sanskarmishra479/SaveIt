@@ -128,11 +128,12 @@ app.post("/api/v1/content",authMiddleware, async function(req, res){
     try{
         const link = req.body.link;
         const title = req.body.title;
+        const type = req.body.type;
         await contentModel.create({
                 link,
                 title,
                 userId:req.userID,
-                type:"image",
+                type,
                 tags:[]
             })
         res.status(200).json({
