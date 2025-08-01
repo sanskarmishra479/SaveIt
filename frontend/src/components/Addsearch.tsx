@@ -1,8 +1,7 @@
 import { useContext } from "react"
 import { Btnicon } from "../icons/Btnicon"
-import { Shareicon } from "../icons/Shareicon"
+import { Shareicon } from "../icons/SearchIcon"
 import Button from "./Button"
-import { Search } from "./Search"
 import { ButtonContext } from "./context/ButtonContext"
 
 
@@ -17,7 +16,6 @@ export const Addsearch = ()=>{
                     }}/>
                     <Button size="sm" variant="primary" startIcon={<Shareicon />} />
                 </div>
-                <Search />
             </div>
         </>
     )

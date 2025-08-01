@@ -1,9 +1,7 @@
-export const Greeting = () =>{
+export const Greeting = ()=>{
     return(
-        <>
-            <div className="flex justify-center text-5xl p-5 mt-2">
-                <h1 className="font-['Instrument_Serif']">Late Night, <span className="font-['Instrument_Serif'] italic ">sam</span></h1>
-            </div>
-        </>
+        <div className="w-screen h-30 flex items-center justify-center">
+            <h1 className="text-zinc-800 font-[]">SaveIt</h1>
+        </div>
     )
 }
